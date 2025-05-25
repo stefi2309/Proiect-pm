@@ -31,7 +31,7 @@ void loop() {
   if (lastButtonState == HIGH && currentButtonState == LOW) {
     zile++;
     if (zile > 14) {
-      zile = 0; // reset după 15 apăsări
+      zile = 0; // reset după 15 apasari
       Serial.println("Reset zile!");
     } else {
       Serial.print("Zile incrementate: ");
@@ -41,7 +41,7 @@ void loop() {
   }
   lastButtonState = currentButtonState;
 
-  // Feedback LED RGB în funcție de numărul de zile
+  // Feedback LED RGB in functie de numarul de zile
   if (zile < 10) {
     setColor(0, 255, 0); // verde
     noTone(BUZZER);
@@ -49,11 +49,11 @@ void loop() {
     setColor(255, 165, 0); // portocaliu
     noTone(BUZZER);
   } else {
-    setColor(255, 0, 0);   // roșu
+    setColor(255, 0, 0);   // rosu
     tone(BUZZER, 2000);
   }
 
-  // Afișare pe LCD
+  // Afisare pe LCD
   int airQuality = analogRead(SENSOR);
   lcd.setCursor(0, 0);
   lcd.print("Zile: ");
